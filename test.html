@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Dates</title>
+	<script   src="https://code.jquery.com/jquery-3.0.0.js"   integrity="sha256-jrPLZ+8vDxt2FnE1zvZXCkCcebI/C8Dt5xyaQBjxQIo="   crossorigin="anonymous"></script>
+</head>
+<body>
+
+
+<div class="dates">
+  <span >05/20/2016</span>
+  <span  >07/02/2016</span>
+  <span>07/29/2016</span>
+  <span>07/30/2016</span>
+</div>
+<hr />
+<div class="dates">
+  <span>06/22/2016</span>
+  <span>07/08/2016</span>
+  <span>07/28/2016</span>
+  <span>07/29/2016</span>
+  <span>07/30/2016</span>
+</div>
+<hr />
+<div class="dates">
+  <span>07/21/2016</span>
+  <span>07/24/2016</span>
+</div>
+<hr />
+<div class="dates">
+  <span>06/01/2016</span>
+  <span>07/30/2016</span>
+  <span></span>
+</div>
+<hr />
+<div class="dates">
+  <span>06/01/2016</span>
+  <span>06/02/2016</span>
+  <span>07/21/2016</span>
+</div>
+<hr />
+<div class="dates">
+  <span>06/01/2016</span>
+  <span>06/02/2016</span>
+  <span>06/03/2016</span>
+  <span>06/04/2016</span>
+  <span>07/25/2016</span>
+  <span>06/17/2016</span>
+</div>
+<hr />
+<p>The setDate() method sets the date of a month.</p>
+
+<p id="demo"></p>
+<button onclick="myFunction()">Try it</button>
+
+<script>
+var d = new Date();
+
+var month = d.getMonth()+1;
+var day = d.getDate();
+var x=0;
+var $output = ((''+month).length<2 ? '0' : '') + month + '/' +
+    ((''+day).length<2 ? '0' : '') + day+ '/'+d.getFullYear();
+
+console.log("today date"+":"+" "+$output);
+
+$('span').each(function () { 
+	if ($(this).text()> $output){
+		$(this).addClass( "valid");
+
+		
+	}
+
+
+  
+});
+
+	
+  $('.dates').each(function() {
+    $(this).find('.valid').each(function(i){
+    	$(this).addClass("a" + ++i);
+    	return i;
+    });
+});
+
+</script>
+
+<style>
+  span { display: none; }
+  span.valid.a1 {display: block;}
+</style>
+</body>
+</html>
